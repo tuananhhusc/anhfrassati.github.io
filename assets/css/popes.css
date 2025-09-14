@@ -1,0 +1,1183 @@
+/* Popes Page Styles */
+
+/* Hero Section */
+.hero-section {
+  background: linear-gradient(135deg, #2f4f6f 0%, #1a365d 100%);
+  color: white;
+  padding: 5rem 0;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="crosses" width="20" height="20" patternUnits="userSpaceOnUse"><circle cx="10" cy="10" r="1" fill="white" opacity="0.1"/><path d="M8,8 L12,12 M12,8 L8,12" stroke="white" stroke-width="0.5" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23crosses)"/></svg>');
+  opacity: 0.3;
+}
+
+.hero-section .container {
+  position: relative;
+  z-index: 1;
+}
+
+.hero-section h1 {
+  font-family: 'Merriweather', serif;
+  font-size: 4rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  letter-spacing: -0.02em;
+}
+
+.hero-subtitle {
+  font-size: 1.5rem;
+  opacity: 0.95;
+  max-width: 800px;
+  margin: 0 auto;
+  line-height: 1.7;
+  font-weight: 500;
+}
+
+/* Introduction Section */
+.introduction-section {
+  padding: 4rem 0;
+  background: #f8fafc;
+}
+
+.intro-content {
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.intro-content h2 {
+  font-family: 'Merriweather', serif;
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #2f4f6f;
+  margin-bottom: 2rem;
+}
+
+.intro-content p {
+  font-size: 1.2rem;
+  line-height: 1.8;
+  color: #000000;
+  margin-bottom: 1.5rem;
+}
+
+.highlight-box {
+  background: linear-gradient(135deg, #f8fafc, #e2e8f0);
+  border-left: 4px solid #5a87a8;
+  border-radius: 8px;
+  padding: 1.5rem;
+  margin: 2rem 0;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.highlight-box p {
+  margin: 0;
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: #000000;
+}
+
+.highlight-box strong {
+  color: #2f4f6f;
+  font-weight: 700;
+}
+
+/* Popes Timeline */
+.popes-timeline {
+  padding: 4rem 0;
+  background: white;
+}
+
+.popes-timeline h2 {
+  font-family: 'Merriweather', serif;
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #2f4f6f;
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.timeline {
+  position: relative;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 60px;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+  background: linear-gradient(180deg, #5a87a8, #2f4f6f);
+  border-radius: 2px;
+}
+
+.timeline-item {
+  position: relative;
+  margin-bottom: 4rem;
+  padding-left: 120px;
+}
+
+.timeline-marker {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 120px;
+  height: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+}
+
+.pope-number {
+  width: 80px;
+  height: 80px;
+  background: linear-gradient(135deg, #5a87a8, #2f4f6f);
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  font-weight: 700;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  border: 4px solid white;
+}
+
+.timeline-content {
+  position: relative;
+}
+
+.pope-card {
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+  border: 2px solid #f1f5f9;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.pope-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+  border-color: #5a87a8;
+}
+
+.pope-header {
+  background: linear-gradient(135deg, #5a87a8, #2f4f6f);
+  color: white;
+  padding: 2rem;
+  text-align: center;
+}
+
+.pope-header h3 {
+  font-family: 'Merriweather', serif;
+  font-size: 2rem;
+  font-weight: 700;
+  margin: 0 0 0.5rem 0;
+}
+
+.pope-name {
+  display: block;
+  font-size: 1.2rem;
+  opacity: 0.9;
+  margin-bottom: 0.5rem;
+}
+
+.pope-period {
+  display: block;
+  font-size: 1rem;
+  opacity: 0.8;
+  font-weight: 600;
+}
+
+.pope-body {
+  padding: 2.5rem;
+}
+
+.pope-info {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+  margin-bottom: 2rem;
+  padding: 1.5rem;
+  background: #f8fafc;
+  border-radius: 12px;
+}
+
+.info-item {
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.info-item strong {
+  color: #2f4f6f;
+  font-weight: 600;
+}
+
+.pope-achievements h4 {
+  font-family: 'Merriweather', serif;
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #2f4f6f;
+  margin-bottom: 1rem;
+}
+
+.pope-achievements ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.pope-achievements li {
+  position: relative;
+  padding-left: 1.5rem;
+  margin-bottom: 0.8rem;
+  line-height: 1.6;
+  color: #000000;
+}
+
+.pope-achievements li::before {
+  content: '✝';
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: #5a87a8;
+  font-weight: bold;
+}
+
+.pope-achievements em {
+  font-style: italic;
+  color: #2f4f6f;
+  font-weight: 600;
+}
+
+.special-story {
+  background: #f8fafc;
+  border-radius: 8px;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+  border: 1px solid #e2e8f0;
+}
+
+.special-story p {
+  margin-bottom: 1rem;
+  line-height: 1.7;
+  color: #000000;
+}
+
+.special-story strong {
+  color: #2f4f6f;
+  font-weight: 700;
+}
+
+.letter-quote {
+  background: white;
+  border-left: 4px solid #5a87a8;
+  padding: 1rem 1.5rem;
+  margin: 1rem 0;
+  font-style: italic;
+  color: #000000;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.pope-love-story {
+  text-align: center;
+  margin-bottom: 3rem;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.pope-love-story p {
+  font-size: 1.2rem;
+  line-height: 1.8;
+  color: #000000;
+  margin-bottom: 2rem;
+}
+
+.letter-section {
+  background: linear-gradient(135deg, #f8fafc, #e2e8f0);
+  border-radius: 12px;
+  padding: 2rem;
+  margin: 2rem 0;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.letter-section p {
+  font-size: 1.1rem;
+  color: #000000;
+  margin-bottom: 1.5rem;
+  font-style: italic;
+}
+
+.main-letter-quote {
+  background: white;
+  border-left: 4px solid #5a87a8;
+  padding: 2rem;
+  margin: 0;
+  font-style: italic;
+  color: #000000;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+  position: relative;
+}
+
+.main-letter-quote::before {
+  content: '"';
+  font-size: 4rem;
+  color: #5a87a8;
+  position: absolute;
+  top: -10px;
+  left: 20px;
+  font-family: 'Merriweather', serif;
+  opacity: 0.3;
+}
+
+.main-letter-quote p {
+  margin: 0;
+  font-size: 1.2rem;
+  line-height: 1.7;
+  font-style: italic;
+}
+
+.pope-quote {
+  margin-top: 2rem;
+  padding: 1.5rem;
+  background: linear-gradient(135deg, #f8fafc, #e2e8f0);
+  border-left: 4px solid #5a87a8;
+  border-radius: 8px;
+}
+
+.pope-quote blockquote {
+  margin: 0;
+  font-style: italic;
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: #000000;
+}
+
+/* Historical Popes Section */
+.historical-popes-section {
+  padding: 4rem 0;
+  background: #f8fafc;
+}
+
+.historical-popes-section h2 {
+  font-family: 'Merriweather', serif;
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #2f4f6f;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.historical-popes-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  gap: 2.5rem;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.historical-pope-card {
+  background: white;
+  border-radius: 20px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+  border: 2px solid #f1f5f9;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.historical-pope-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+  border-color: #5a87a8;
+}
+
+.historical-pope-card .pope-image {
+  background: linear-gradient(135deg, #2f4f6f, #1a365d);
+  padding: 2rem;
+  text-align: center;
+  position: relative;
+}
+
+.historical-pope-card .pope-avatar {
+  width: 120px;
+  height: 120px;
+  background: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #2f4f6f;
+  margin: 0 auto;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+}
+
+.historical-pope-card .pope-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.historical-pope-card .pope-number {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: rgba(255, 255, 255, 0.9);
+  color: #2f4f6f;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-weight: 700;
+  font-size: 0.9rem;
+}
+
+.historical-pope-card .pope-content {
+  padding: 2.5rem;
+}
+
+.historical-pope-card .pope-content h3 {
+  font-family: 'Merriweather', serif;
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #2f4f6f;
+  margin: 0 0 0.5rem 0;
+  text-align: center;
+}
+
+.historical-pope-card .pope-period {
+  display: block;
+  text-align: center;
+  font-size: 1.1rem;
+  color: #5a87a8;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+}
+
+.historical-pope-card .pope-details {
+  background: #f8fafc;
+  border-radius: 8px;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.historical-pope-card .pope-details p {
+  margin: 0.5rem 0;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: #000000;
+}
+
+.historical-pope-card .pope-details strong {
+  color: #2f4f6f;
+  font-weight: 600;
+}
+
+.historical-pope-card .pope-achievements h4 {
+  font-family: 'Merriweather', serif;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #2f4f6f;
+  margin-bottom: 1rem;
+}
+
+.historical-pope-card .pope-achievements ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.historical-pope-card .pope-achievements li {
+  position: relative;
+  padding-left: 1.5rem;
+  margin-bottom: 0.8rem;
+  line-height: 1.6;
+  color: #000000;
+  font-size: 0.95rem;
+}
+
+.historical-pope-card .pope-achievements li::before {
+  content: '✝';
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: #5a87a8;
+  font-weight: bold;
+}
+
+.historical-pope-card .pope-achievements strong {
+  color: #2f4f6f;
+  font-weight: 600;
+}
+
+.historical-pope-card .special-story {
+  background: linear-gradient(135deg, #f8fafc, #e2e8f0);
+  border-left: 4px solid #5a87a8;
+  border-radius: 8px;
+  padding: 1.5rem;
+  margin: 1.5rem 0;
+}
+
+.historical-pope-card .special-story p {
+  margin: 0.8rem 0;
+  line-height: 1.7;
+  color: #000000;
+}
+
+.historical-pope-card .letter-quote {
+  background: white;
+  border-left: 3px solid #5a87a8;
+  padding: 1rem;
+  margin: 1rem 0;
+  font-style: italic;
+  border-radius: 4px;
+}
+
+.historical-pope-card .pope-quote {
+  margin-top: 2rem;
+  padding: 1.5rem;
+  background: linear-gradient(135deg, #f8fafc, #e2e8f0);
+  border-left: 4px solid #5a87a8;
+  border-radius: 8px;
+}
+
+.historical-pope-card .pope-quote blockquote {
+  margin: 0;
+  font-style: italic;
+  font-size: 1rem;
+  line-height: 1.7;
+  color: #000000;
+}
+
+/* Modern Popes Section */
+.modern-popes-section {
+  padding: 4rem 0;
+  background: white;
+}
+
+.modern-popes-section h2 {
+  font-family: 'Merriweather', serif;
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #2f4f6f;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.section-intro {
+  font-size: 1.2rem;
+  line-height: 1.8;
+  color: #000000;
+  text-align: center;
+  max-width: 900px;
+  margin: 0 auto 3rem auto;
+}
+
+.modern-popes-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  gap: 2.5rem;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.modern-pope-card {
+  background: white;
+  border-radius: 20px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+  border: 2px solid #f1f5f9;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.modern-pope-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+  border-color: #5a87a8;
+}
+
+.pope-image {
+  background: linear-gradient(135deg, #5a87a8, #2f4f6f);
+  padding: 2rem;
+  text-align: center;
+  position: relative;
+}
+
+.pope-avatar {
+  width: 120px;
+  height: 120px;
+  background: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #2f4f6f;
+  margin: 0 auto;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+}
+
+.pope-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.pope-content {
+  padding: 2.5rem;
+}
+
+.pope-content h3 {
+  font-family: 'Merriweather', serif;
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #2f4f6f;
+  margin: 0 0 0.5rem 0;
+  text-align: center;
+}
+
+.pope-period {
+  display: block;
+  text-align: center;
+  font-size: 1.1rem;
+  color: #5a87a8;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+}
+
+.pope-details {
+  background: #f8fafc;
+  border-radius: 8px;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.pope-details p {
+  margin: 0.5rem 0;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: #000000;
+}
+
+.pope-details strong {
+  color: #2f4f6f;
+  font-weight: 600;
+}
+
+.pope-achievements h4 {
+  font-family: 'Merriweather', serif;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #2f4f6f;
+  margin-bottom: 1rem;
+}
+
+.pope-achievements ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.pope-achievements li {
+  position: relative;
+  padding-left: 1.5rem;
+  margin-bottom: 0.8rem;
+  line-height: 1.6;
+  color: #000000;
+  font-size: 0.95rem;
+}
+
+.pope-achievements li::before {
+  content: '✝';
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: #5a87a8;
+  font-weight: bold;
+}
+
+.pope-achievements strong {
+  color: #2f4f6f;
+  font-weight: 600;
+}
+
+.pope-quote {
+  margin-top: 2rem;
+  padding: 1.5rem;
+  background: linear-gradient(135deg, #f8fafc, #e2e8f0);
+  border-left: 4px solid #5a87a8;
+  border-radius: 8px;
+}
+
+.pope-quote blockquote {
+  margin: 0;
+  font-style: italic;
+  font-size: 1rem;
+  line-height: 1.7;
+  color: #000000;
+}
+
+/* Impact Section */
+.impact-section {
+  padding: 4rem 0;
+  background: #f8fafc;
+}
+
+.impact-section h2 {
+  font-family: 'Merriweather', serif;
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #2f4f6f;
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.impact-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.impact-card {
+  background: white;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  border: 2px solid #f1f5f9;
+  transition: all 0.3s ease;
+}
+
+.impact-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+  border-color: #5a87a8;
+}
+
+.impact-card h3 {
+  font-family: 'Merriweather', serif;
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #2f4f6f;
+  margin-bottom: 1rem;
+}
+
+.impact-card p {
+  line-height: 1.7;
+  color: #000000;
+  margin: 0;
+}
+
+.impact-card em {
+  font-style: italic;
+  color: #2f4f6f;
+  font-weight: 600;
+}
+
+/* Quote Section */
+.quote-section {
+  background: #2f4f6f;
+  color: white;
+  padding: 4rem 0;
+  text-align: center;
+}
+
+.quote-section blockquote {
+  max-width: 900px;
+  margin: 0 auto;
+  font-style: italic;
+}
+
+.quote-section blockquote p {
+  font-size: 1.8rem;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+  font-family: 'Merriweather', serif;
+}
+
+.quote-section blockquote cite {
+  font-size: 1.2rem;
+  opacity: 0.9;
+  font-style: normal;
+}
+
+.quote-section blockquote cite::before {
+  content: '— ';
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .hero-section h1 {
+    font-size: 2.5rem;
+  }
+  
+  .hero-subtitle {
+    font-size: 1.2rem;
+  }
+  
+  .intro-content h2 {
+    font-size: 2rem;
+  }
+  
+  .intro-content p {
+    font-size: 1.1rem;
+  }
+  
+  .popes-timeline h2 {
+    font-size: 2rem;
+  }
+  
+  .timeline::before {
+    left: 40px;
+  }
+  
+  .timeline-item {
+    padding-left: 80px;
+  }
+  
+  .timeline-marker {
+    width: 80px;
+    height: 80px;
+  }
+  
+  .pope-number {
+    width: 60px;
+    height: 60px;
+    font-size: 1.2rem;
+  }
+  
+  .pope-header {
+    padding: 1.5rem;
+  }
+  
+  .pope-header h3 {
+    font-size: 1.6rem;
+  }
+  
+  .pope-body {
+    padding: 1.5rem;
+  }
+  
+  .pope-info {
+    grid-template-columns: 1fr;
+    padding: 1rem;
+  }
+  
+  .impact-section h2 {
+    font-size: 2rem;
+  }
+  
+  .impact-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .impact-card {
+    padding: 1.5rem;
+  }
+  
+  .quote-section blockquote p {
+    font-size: 1.4rem;
+  }
+  
+  .highlight-box {
+    padding: 1rem;
+    margin: 1.5rem 0;
+  }
+  
+  .special-story {
+    padding: 1rem;
+  }
+  
+  .letter-section {
+    padding: 1.5rem;
+  }
+  
+  .main-letter-quote {
+    padding: 1.5rem;
+  }
+  
+  .main-letter-quote p {
+    font-size: 1.1rem;
+  }
+  
+  .historical-popes-section h2 {
+    font-size: 2rem;
+  }
+  
+  .modern-popes-section h2 {
+    font-size: 2rem;
+  }
+  
+  .section-intro {
+    font-size: 1.1rem;
+  }
+  
+  .historical-popes-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  
+  .modern-popes-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  
+  .historical-pope-card {
+    margin: 0 1rem;
+  }
+  
+  .modern-pope-card {
+    margin: 0 1rem;
+  }
+  
+  .historical-pope-card .pope-content {
+    padding: 2rem;
+  }
+  
+  .modern-pope-card .pope-content {
+    padding: 2rem;
+  }
+  
+  .historical-pope-card .pope-content h3 {
+    font-size: 1.6rem;
+  }
+  
+  .modern-pope-card .pope-content h3 {
+    font-size: 1.6rem;
+  }
+  
+  .historical-pope-card .pope-avatar {
+    width: 100px;
+    height: 100px;
+    font-size: 2rem;
+  }
+  
+  .modern-pope-card .pope-avatar {
+    width: 100px;
+    height: 100px;
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-section {
+    padding: 3rem 0;
+  }
+  
+  .introduction-section,
+  .popes-timeline,
+  .impact-section {
+    padding: 2rem 0;
+  }
+  
+  .quote-section {
+    padding: 2rem 0;
+  }
+  
+  .timeline::before {
+    left: 30px;
+  }
+  
+  .timeline-item {
+    padding-left: 60px;
+  }
+  
+  .timeline-marker {
+    width: 60px;
+    height: 60px;
+  }
+  
+  .pope-number {
+    width: 50px;
+    height: 50px;
+    font-size: 1rem;
+  }
+  
+  .pope-header {
+    padding: 1rem;
+  }
+  
+  .pope-header h3 {
+    font-size: 1.4rem;
+  }
+  
+  .pope-body {
+    padding: 1rem;
+  }
+  
+  .impact-card {
+    padding: 1rem;
+  }
+  
+  .historical-popes-section {
+    padding: 2rem 0;
+  }
+  
+  .modern-popes-section {
+    padding: 2rem 0;
+  }
+  
+  .historical-popes-section h2 {
+    font-size: 1.8rem;
+  }
+  
+  .modern-popes-section h2 {
+    font-size: 1.8rem;
+  }
+  
+  .section-intro {
+    font-size: 1rem;
+    margin-bottom: 2rem;
+  }
+  
+  .historical-popes-grid {
+    gap: 1.5rem;
+  }
+  
+  .modern-popes-grid {
+    gap: 1.5rem;
+  }
+  
+  .historical-pope-card {
+    margin: 0;
+  }
+  
+  .modern-pope-card {
+    margin: 0;
+  }
+  
+  .historical-pope-card .pope-content {
+    padding: 1.5rem;
+  }
+  
+  .modern-pope-card .pope-content {
+    padding: 1.5rem;
+  }
+  
+  .historical-pope-card .pope-content h3 {
+    font-size: 1.4rem;
+  }
+  
+  .modern-pope-card .pope-content h3 {
+    font-size: 1.4rem;
+  }
+  
+  .historical-pope-card .pope-avatar {
+    width: 80px;
+    height: 80px;
+    font-size: 1.8rem;
+  }
+  
+  .modern-pope-card .pope-avatar {
+    width: 80px;
+    height: 80px;
+    font-size: 1.8rem;
+  }
+  
+  .historical-pope-card .pope-details {
+    padding: 1rem;
+  }
+  
+  .modern-pope-card .pope-details {
+    padding: 1rem;
+  }
+  
+  .historical-pope-card .pope-quote {
+    padding: 1rem;
+  }
+  
+  .modern-pope-card .pope-quote {
+    padding: 1rem;
+  }
+}
+
+/* Animation for timeline items */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.timeline-item {
+  animation: fadeInUp 0.6s ease forwards;
+}
+
+.timeline-item:nth-child(1) { animation-delay: 0.1s; }
+.timeline-item:nth-child(2) { animation-delay: 0.2s; }
+.timeline-item:nth-child(3) { animation-delay: 0.3s; }
+.timeline-item:nth-child(4) { animation-delay: 0.4s; }
+
+/* Animation for historical pope cards */
+.historical-pope-card {
+  animation: fadeInUp 0.6s ease forwards;
+}
+
+.historical-pope-card:nth-child(1) { animation-delay: 0.1s; }
+.historical-pope-card:nth-child(2) { animation-delay: 0.2s; }
+.historical-pope-card:nth-child(3) { animation-delay: 0.3s; }
+.historical-pope-card:nth-child(4) { animation-delay: 0.4s; }
+
+/* Animation for modern pope cards */
+.modern-pope-card {
+  animation: fadeInUp 0.6s ease forwards;
+}
+
+.modern-pope-card:nth-child(1) { animation-delay: 0.1s; }
+.modern-pope-card:nth-child(2) { animation-delay: 0.2s; }
+.modern-pope-card:nth-child(3) { animation-delay: 0.3s; }
+
+/* Focus styles for accessibility */
+.pope-card:focus {
+  outline: 2px solid #5a87a8;
+  outline-offset: 2px;
+}
+
+/* Print styles */
+@media print {
+  .hero-section {
+    background: white;
+    color: black;
+  }
+  
+  .pope-card {
+    break-inside: avoid;
+    box-shadow: none;
+    border: 1px solid #ccc;
+  }
+  
+  .quote-section {
+    background: white;
+    color: black;
+  }
+}
