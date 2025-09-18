@@ -2,6 +2,7 @@
   // Get elements
   const navToggle = document.querySelector('.nav-toggle');
   const mainNav = document.getElementById('main-nav');
+  const siteHeader = document.querySelector('.site-header');
   const submenuToggle = document.querySelector('.submenu-toggle');
   const submenu = document.querySelector('.submenu');
   const year = document.getElementById('year');
@@ -44,6 +45,16 @@
         document.body.style.overflow = '';
       });
     });
+  }
+
+  // Sticky header shadow on scroll
+  if (siteHeader) {
+    const setHeaderScrolledState = () => {
+      const scrolled = window.scrollY > 6;
+      siteHeader.classList.toggle('scrolled', scrolled);
+    };
+    setHeaderScrolledState();
+    window.addEventListener('scroll', setHeaderScrolledState, { passive: true });
   }
 
   // Enhanced submenu toggle with hover support
@@ -213,6 +224,19 @@
         setTimeout(() => {
           window.location.reload();
         }, 100);
+      }
+    });
+  }
+
+  // Highlight active top-level link automatically
+  if (mainNav) {
+    const links = mainNav.querySelectorAll('.menu > li > a');
+    const current = window.location.pathname.split('/').pop() || 'index.html';
+    links.forEach(link => {
+      const href = link.getAttribute('href');
+      if (!href) return;
+      if (href === current) {
+        link.classList.add('is-active');
       }
     });
   }
