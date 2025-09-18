@@ -40,6 +40,13 @@ html, body {
   border-bottom: none;
 }
 
+/* Modern sticky effect */
+.site-header.scrolled {
+  box-shadow: 0 6px 24px rgba(0,0,0,0.18);
+  background: linear-gradient(180deg, rgba(90,135,168,0.98) 0%, rgba(90,135,168,0.95) 100%);
+  backdrop-filter: saturate(120%) blur(8px);
+}
+
 .topbar { background: var(--bluebar); color: #eaf2f7; border-bottom: none; }
 
 .topbar-inner {
@@ -189,8 +196,10 @@ html, body {
   border: none;
   background: transparent;
   cursor: pointer;
-  padding: 12px 0;
-  transition: all 0.3s ease;
+  padding: 12px 10px;
+  border-radius: 10px;
+  transition: color 0.25s ease, background-color 0.25s ease, transform 0.2s ease;
+  position: relative;
 }
 
 /* Desktop behavior for submenu toggle */
@@ -206,7 +215,40 @@ html, body {
 }
 .menu > li > button.submenu-toggle .caret { margin-left: 6px; transition: transform .2s ease; }
 .menu > li > button.submenu-toggle[aria-expanded="true"] .caret { transform: rotate(180deg); }
-.menu > li > a:hover, .menu > li > button.submenu-toggle:hover { color: #ffffff; }
+.menu > li > a:hover, .menu > li > button.submenu-toggle:hover { color: #ffffff; background: rgba(255,255,255,0.08); }
+
+/* Animated underline */
+.menu > li > a::after,
+.menu > li > button.submenu-toggle::after {
+  content: '';
+  position: absolute;
+  left: 10px;
+  right: 10px;
+  bottom: 6px;
+  height: 2px;
+  background: rgba(255,255,255,0.8);
+  transform: scaleX(0);
+  transform-origin: center;
+  transition: transform 0.25s ease;
+  border-radius: 2px;
+}
+
+.menu > li:hover > a::after,
+.menu > li:hover > button.submenu-toggle::after,
+.menu > li > button.submenu-toggle[aria-expanded="true"]::after {
+  transform: scaleX(1);
+}
+
+/* Focus-visible states for accessibility */
+.menu > li > a:focus-visible,
+.menu > li > button.submenu-toggle:focus-visible,
+.submenu li a:focus-visible,
+.nav-toggle:focus-visible,
+.logo-badge:focus-visible {
+  outline: 2px solid #ffffff;
+  outline-offset: 2px;
+  box-shadow: 0 0 0 4px rgba(255,255,255,0.25);
+}
 
 .has-submenu { 
   position: relative; 
@@ -217,10 +259,10 @@ html, body {
   top: 100%;
   left: 0;
   min-width: 220px;
-  background: #ffffff;
+  background: rgba(255,255,255,0.96);
   border: 1px solid #e5e7eb;
   border-radius: 8px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.18);
   padding: 8px;
   list-style: none;
   margin: 0;
@@ -231,6 +273,8 @@ html, body {
   visibility: hidden;
   pointer-events: none;
   z-index: 1000;
+  backdrop-filter: blur(10px);
+  border-top: 3px solid var(--brand);
 }
 
 .submenu.open {
@@ -302,6 +346,7 @@ html, body {
     left: 50%;
     transform: translateX(-50%) translateY(-10px);
     min-width: 240px;
+    padding: 10px;
   }
   
   .submenu.open {
@@ -379,7 +424,7 @@ html, body {
 
 /* Background image classes with enhanced quality */
 .image-section-1 {
-  background-image: url('../images/2.png');
+  background-image: url('../images/Pier Giorgio Frassati.png');
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
@@ -390,7 +435,7 @@ html, body {
 }
 
 .image-section-2 {
-  background-image: url('../images/1.png');
+  background-image: url('../images/Pier Giorgio Frassati7.png');
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
