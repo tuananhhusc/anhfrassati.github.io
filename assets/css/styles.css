@@ -1,0 +1,813 @@
+:root {
+  --bg: #ffffff;
+  --text: #101418;
+  --muted: #6b7280;
+  --brand: #2f4f6f;
+  --brand-strong: #1f2f43;
+  --border: #e5e7eb;
+  --bluebar: #5a87a8;
+  --topbar-h: 72px;
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji";
+  line-height: 1.6;
+}
+
+.container {
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+.topbar .container {
+  padding: 0;
+}
+
+/* Header */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--bluebar);
+  border-bottom: none;
+}
+
+/* Modern sticky effect */
+.site-header.scrolled {
+  box-shadow: 0 6px 24px rgba(0,0,0,0.18);
+  background: linear-gradient(180deg, rgba(90,135,168,0.98) 0%, rgba(90,135,168,0.95) 100%);
+  backdrop-filter: saturate(120%) blur(8px);
+}
+
+.topbar { background: var(--bluebar); color: #eaf2f7; border-bottom: none; }
+
+.topbar-inner {
+  display: flex;
+  align-items: center;
+  height: var(--topbar-h);
+  justify-content: flex-start;
+  padding-left: 0;
+}
+
+.site-title {
+  justify-self: center;
+  font-family: Merriweather, Georgia, serif;
+  font-weight: 700;
+  font-style: italic;
+  font-size: 32px;
+  letter-spacing: 1px;
+  color: #eaf2f7;
+  margin: 0;
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 64px;
+}
+
+/* Logo badge */
+.logo-badge {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  text-decoration: none;
+  color: inherit;
+  padding-left: 8px;
+  transition: opacity 0.3s ease;
+  cursor: pointer;
+  position: relative;
+  z-index: 10;
+}
+
+.logo-badge:hover {
+  opacity: 0.8;
+}
+
+.logo-badge:active {
+  transform: scale(0.98);
+}
+
+.badge-lines {
+  display: flex;
+  align-items: center;
+  padding: 8px 12px;
+  background: #5a87a8;
+  color: #ffffff;
+  border-radius: 4px;
+}
+
+.badge-lines .line { text-transform: uppercase; letter-spacing: 2px; }
+.badge-lines .line-title { 
+  font-size: 18px; 
+  font-weight: 800; 
+  letter-spacing: 3px; 
+  white-space: nowrap;
+  line-height: 1;
+}
+
+.badge-crest {
+  width: 48px;
+  height: 48px;
+  display: inline-flex;
+  border-radius: 50%;
+  background: #f2a81d center/cover no-repeat;
+  border: 3px solid #ffffff;
+  box-shadow: 0 0 0 2px rgba(0,0,0,0.08);
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+/* Navigation */
+.nav-toggle {
+  display: none;
+  width: 44px;
+  height: 44px;
+  border: 2px solid rgba(255,255,255,0.3);
+  border-radius: 12px;
+  background: rgba(255,255,255,0.1);
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+  position: relative;
+  z-index: 1001;
+}
+
+.nav-toggle:hover {
+  background: rgba(255,255,255,0.2);
+  border-color: rgba(255,255,255,0.5);
+  transform: scale(1.05);
+}
+
+.nav-toggle .bar { 
+  display: block; 
+  width: 20px; 
+  height: 3px; 
+  background: #ffffff; 
+  border-radius: 2px;
+  transition: all 0.3s ease;
+  transform-origin: center;
+}
+
+.nav-toggle[aria-expanded="true"] .bar:nth-child(1) {
+  transform: translateY(8px) rotate(45deg);
+}
+
+.nav-toggle[aria-expanded="true"] .bar:nth-child(2) {
+  opacity: 0;
+  transform: scale(0);
+}
+
+.nav-toggle[aria-expanded="true"] .bar:nth-child(3) {
+  transform: translateY(-8px) rotate(-45deg);
+}
+
+.main-nav { display: block; margin-left: auto; }
+
+.menu {
+  list-style: none;
+  display: flex;
+  gap: 24px;
+  margin: 0;
+  padding: 0;
+  align-items: center;
+}
+
+.menu > li > a,
+.menu > li > button.submenu-toggle {
+  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Noto Sans";
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1;
+  color: #eaf2f7;
+  text-decoration: none;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  padding: 12px 10px;
+  border-radius: 10px;
+  transition: color 0.25s ease, background-color 0.25s ease, transform 0.2s ease;
+  position: relative;
+}
+
+/* Desktop behavior for submenu toggle */
+@media (min-width: 721px) {
+  .menu > li > button.submenu-toggle {
+    cursor: pointer;
+  }
+  
+  .menu > li > button.submenu-toggle:hover {
+    color: #ffffff;
+    transform: translateY(-1px);
+  }
+}
+.menu > li > button.submenu-toggle .caret { margin-left: 6px; transition: transform .2s ease; }
+.menu > li > button.submenu-toggle[aria-expanded="true"] .caret { transform: rotate(180deg); }
+.menu > li > a:hover, .menu > li > button.submenu-toggle:hover { color: #ffffff; background: rgba(255,255,255,0.08); }
+
+/* Animated underline */
+.menu > li > a::after,
+.menu > li > button.submenu-toggle::after {
+  content: '';
+  position: absolute;
+  left: 10px;
+  right: 10px;
+  bottom: 6px;
+  height: 2px;
+  background: rgba(255,255,255,0.8);
+  transform: scaleX(0);
+  transform-origin: center;
+  transition: transform 0.25s ease;
+  border-radius: 2px;
+}
+
+.menu > li:hover > a::after,
+.menu > li:hover > button.submenu-toggle::after,
+.menu > li > button.submenu-toggle[aria-expanded="true"]::after {
+  transform: scaleX(1);
+}
+
+/* Focus-visible states for accessibility */
+.menu > li > a:focus-visible,
+.menu > li > button.submenu-toggle:focus-visible,
+.submenu li a:focus-visible,
+.nav-toggle:focus-visible,
+.logo-badge:focus-visible {
+  outline: 2px solid #ffffff;
+  outline-offset: 2px;
+  box-shadow: 0 0 0 4px rgba(255,255,255,0.25);
+}
+
+.has-submenu { 
+  position: relative; 
+}
+
+.submenu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  min-width: 220px;
+  background: rgba(255,255,255,0.96);
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.18);
+  padding: 8px;
+  list-style: none;
+  margin: 0;
+  display: none;
+  opacity: 0;
+  transform: translateY(-10px);
+  transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s ease;
+  visibility: hidden;
+  pointer-events: none;
+  z-index: 1000;
+  backdrop-filter: blur(10px);
+  border-top: 3px solid var(--brand);
+}
+
+.submenu.open {
+  display: block !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  transform: translateY(0) !important;
+  pointer-events: auto !important;
+}
+
+.submenu li {
+  margin: 0;
+}
+
+.submenu li a {
+  display: block;
+  padding: 10px 12px;
+  color: #374151;
+  text-decoration: none;
+  border-radius: 6px;
+  transition: background-color 0.2s ease;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.submenu li a:hover {
+  background: #f3f4f6;
+  color: #1f2937;
+}
+/* Click behavior - prioritize JavaScript control */
+.submenu.show,
+.submenu.open { 
+  display: block !important; 
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+  pointer-events: auto !important;
+  visibility: visible !important;
+}
+
+/* Desktop hover behavior - only if not controlled by JS */
+@media (min-width: 721px) {
+  .has-submenu:hover > .submenu:not(.open) {
+    display: block !important;
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+    pointer-events: auto;
+    visibility: visible;
+  }
+  
+  .has-submenu:hover > .submenu li a {
+    pointer-events: auto;
+    cursor: pointer;
+  }
+  
+  /* Ensure open class takes precedence */
+  .has-submenu > .submenu.open {
+    display: block !important;
+    opacity: 1 !important;
+    transform: translateX(-50%) translateY(0) !important;
+    pointer-events: auto !important;
+    visibility: visible !important;
+  }
+}
+
+/* Desktop positioning */
+@media (min-width: 721px) {
+  .submenu {
+    top: calc(100% + 8px);
+    left: 50%;
+    transform: translateX(-50%) translateY(-10px);
+    min-width: 240px;
+    padding: 10px;
+    transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s ease;
+  }
+  
+  .submenu.open {
+    transform: translateX(-50%) translateY(0) !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    pointer-events: auto !important;
+  }
+}
+
+/* Masthead (optional) */
+.masthead { position: relative; padding: 48px 0; border-bottom: 1px solid var(--border); }
+.masthead-inner { position: relative; }
+.quote-mark { font-size: 96px; color: #e3b024; line-height: 0.6; }
+.quote-text { font-family: Merriweather, Georgia, serif; font-style: italic; font-size: 36px; color: #000000; margin: 8px 0 0; }
+
+/* Legacy hero grid (if used elsewhere) */
+.hero { padding: 32px 0 16px; }
+.hero-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.hero-card { margin: 0; border-radius: 16px; overflow: hidden; border: 1px solid var(--border); background: #fff; }
+.hero-card img { display: block; width: 100%; height: 360px; object-fit: cover; }
+.hero-card figcaption { padding: 12px 14px; font-weight: 600; color: var(--brand-strong); }
+
+/* Full background image sections with separators */
+.image-section {
+  position: relative;
+  height: 80vh;
+  min-height: 600px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  overflow: hidden;
+}
+
+.image-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.3) 100%);
+  z-index: 1;
+}
+
+.image-container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 20px;
+  position: relative;
+  z-index: 2;
+  width: 100%;
+}
+
+.image-caption {
+  text-align: center;
+  color: white;
+  padding: 40px 30px;
+}
+
+.image-caption h2 {
+  font-family: Merriweather, Georgia, serif;
+  font-size: 32px;
+  font-weight: 700;
+  margin: 0 0 12px 0;
+  text-shadow: 0 3px 6px rgba(0,0,0,0.7);
+}
+
+.image-caption p {
+  font-size: 18px;
+  margin: 0;
+  opacity: 0.95;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.7);
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* Background image classes with enhanced quality */
+.image-section-1 {
+  background-image: url('../images/Pier Giorgio Frassati.png');
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  /* Enhanced image quality settings */
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
+  image-rendering: high-quality;
+}
+
+.image-section-2 {
+  background-image: url('../images/Pier Giorgio Frassati7.png');
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  /* Enhanced image quality settings */
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
+  image-rendering: high-quality;
+}
+
+/* Separator between sections */
+.section-separator {
+  height: 8px;
+  background: var(--brand-strong);
+  margin: 0;
+  position: relative;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Header separator */
+.header-separator {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #e5e7eb, transparent);
+  margin: 0;
+}
+
+/* Canonization Section */
+.canonization-section {
+  padding: 60px 0;
+  background: #ffffff;
+}
+
+.canonization-header {
+  margin-bottom: 40px;
+}
+
+.canonization-title {
+  font-family: Merriweather, Georgia, serif;
+  font-size: 48px;
+  font-weight: 700;
+  color: var(--text);
+  margin: 0 0 20px 0;
+  line-height: 1.2;
+}
+
+.canonization-meta {
+  margin-bottom: 0;
+}
+
+.date-info {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.calendar-icon {
+  font-size: 16px;
+}
+
+.date {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--brand);
+}
+
+.location {
+  font-size: 16px;
+  color: var(--muted);
+  font-style: italic;
+  margin-left: 24px;
+}
+
+.canonization-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: start;
+}
+
+.content-text {
+  font-size: 18px;
+  line-height: 1.8;
+  color: var(--text);
+}
+
+.content-text p {
+  margin-bottom: 24px;
+}
+
+.pope-quote {
+  background: #f8fafc;
+  border-left: 4px solid var(--brand);
+  padding: 24px;
+  margin: 32px 0;
+  font-style: italic;
+  font-size: 20px;
+  line-height: 1.6;
+  color: var(--brand-strong);
+  position: relative;
+}
+
+.pope-quote cite {
+  display: block;
+  margin-top: 16px;
+  font-size: 16px;
+  font-style: normal;
+  color: var(--muted);
+  text-align: right;
+}
+
+.content-image {
+  position: relative;
+}
+
+.canonization-img {
+  width: 100%;
+  height: 500px;
+  object-fit: cover;
+  border-radius: 12px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+
+/* Footer */
+.site-footer { 
+  border-top: 1px solid var(--border); 
+  padding: 24px 0; 
+  color: var(--muted); 
+  font-size: 14px; 
+  text-align: center;
+}
+
+.site-footer p {
+  margin: 8px 0;
+}
+
+.footer-description {
+  font-style: italic;
+  color: var(--brand);
+  font-size: 16px;
+  margin-top: 12px !important;
+}
+
+.footer-contact {
+  color: var(--muted);
+  font-size: 14px;
+  margin-top: 16px !important;
+  font-weight: 500;
+}
+
+/* Responsive */
+@media (max-width: 900px) { 
+  .hero-card img { height: 300px; }
+  .image-section { 
+    height: 60vh; 
+    min-height: 400px;
+    background-attachment: scroll;
+  }
+  .image-caption h2 { font-size: 28px; }
+  .image-caption p { font-size: 16px; }
+  
+  /* Canonization responsive */
+  .canonization-title { font-size: 36px; }
+  .canonization-content { 
+    grid-template-columns: 1fr; 
+    gap: 40px; 
+  }
+  .canonization-img { height: 400px; }
+  .content-text { font-size: 16px; }
+  .pope-quote { font-size: 18px; padding: 20px; }
+}
+
+@media (max-width: 720px) {
+  .nav-toggle { display: inline-flex; }
+  
+  .main-nav {
+    display: none; 
+    position: fixed; 
+    top: 0; 
+    right: -100%; 
+    width: 85%; 
+    max-width: 400px;
+    height: 100vh;
+    background: linear-gradient(135deg, var(--bluebar) 0%, #4a6b8a 100%);
+    border-left: 1px solid rgba(255,255,255,0.1);
+    backdrop-filter: blur(20px);
+    z-index: 1000;
+    transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: -10px 0 30px rgba(0,0,0,0.3);
+  }
+  
+  .main-nav.open { 
+    display: block; 
+    right: 0;
+  }
+  
+  .menu { 
+    flex-direction: column; 
+    align-items: stretch; 
+    gap: 0; 
+    padding: 80px 0 20px 0; 
+    height: 100%;
+    overflow-y: auto;
+  }
+  
+  .menu > li > a, 
+  .menu > li > button.submenu-toggle { 
+    padding: 18px 24px; 
+    text-align: left; 
+    font-size: 17px;
+    font-weight: 600;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    transition: all 0.3s ease;
+    position: relative;
+  }
+  
+  .menu > li > a:hover,
+  .menu > li > button.submenu-toggle:hover {
+    background: rgba(255,255,255,0.1);
+    padding-left: 32px;
+  }
+  
+  .menu > li > a.active {
+    background: rgba(255,255,255,0.15);
+    border-left: 4px solid #ffffff;
+  }
+  
+  /* Enable hover effects on mobile for better UX */
+  @media (max-width: 720px) {
+    .has-submenu:hover > .submenu {
+      display: block !important;
+      opacity: 1 !important;
+      visibility: visible !important;
+      transform: translateY(0) !important;
+      pointer-events: auto !important;
+    }
+    
+    .submenu {
+      will-change: transform, opacity;
+    }
+    
+    .submenu.open {
+      will-change: transform, opacity;
+    }
+  }
+  
+  .submenu { 
+    position: static; 
+    border: none; 
+    box-shadow: none; 
+    padding: 0; 
+    background: rgba(0,0,0,0.1);
+    border-radius: 0;
+    display: none;
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    visibility: hidden;
+    pointer-events: none;
+    min-width: auto;
+    width: 100%;
+    margin: 0;
+    list-style: none;
+    max-height: 0;
+    overflow: hidden;
+  }
+  
+  .submenu.open { 
+    display: block !important; 
+    opacity: 1 !important;
+    visibility: visible !important;
+    transform: translateY(0) !important;
+    pointer-events: auto !important;
+    max-height: 500px !important;
+    overflow: visible !important;
+  }
+  
+  /* Ensure submenu is visible on mobile */
+  @media (max-width: 720px) {
+    .submenu.open {
+      position: static !important;
+      width: 100% !important;
+      min-width: auto !important;
+      left: 0 !important;
+      top: 0 !important;
+      transform: translateY(0) !important;
+    }
+  }
+  
+  .submenu li {
+    margin: 0;
+  }
+  
+  .submenu li a {
+    padding: 14px 24px 14px 48px;
+    font-size: 15px;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+    transition: background-color 0.2s ease, padding-left 0.2s ease;
+    color: #ffffff !important;
+    text-decoration: none;
+    display: block;
+    width: 100%;
+  }
+  
+  .submenu li a:hover {
+    background: rgba(255,255,255,0.08);
+    padding-left: 56px;
+    color: #ffffff !important;
+  }
+  
+  .submenu li:last-child a {
+    border-bottom: none;
+  }
+  
+  /* Mobile backdrop overlay */
+  .main-nav::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: -100%;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0,0,0,0.5);
+    backdrop-filter: blur(5px);
+    z-index: -1;
+    transition: left 0.4s ease;
+  }
+  
+  .main-nav.open::before {
+    left: 0;
+  }
+  
+  .hero-grid { grid-template-columns: 1fr; }
+  .hero-card img { height: 240px; }
+  .site-title { font-size: 22px; }
+  .quote-text { font-size: 24px; }
+  
+  /* Logo responsive */
+  .badge-crest { width: 40px; height: 40px; }
+  .badge-lines .line-title { font-size: 16px; letter-spacing: 2px; }
+  .badge-lines { padding: 6px 10px; }
+  .logo-badge { padding-left: 6px; gap: 4px; }
+  
+  /* Image sections responsive */
+  .image-section { 
+    height: 60vh; 
+    min-height: 400px;
+    margin: 0;
+  }
+  .image-container { padding: 0 16px; }
+  .image-section-1, .image-section-2 {
+    background-size: cover;
+  }
+  .image-caption { padding: 30px 20px; }
+  .image-caption h2 { font-size: 24px; }
+  .image-caption p { font-size: 16px; }
+  
+  /* Separator responsive */
+  .section-separator {
+    height: 6px;
+  }
+  
+  /* Canonization mobile responsive */
+  .canonization-section { padding: 40px 0; }
+  .canonization-title { font-size: 28px; }
+  .canonization-content { gap: 30px; }
+  .canonization-img { height: 300px; }
+  .content-text { font-size: 15px; }
+  .pope-quote { font-size: 16px; padding: 16px; }
+  .date { font-size: 16px; }
+  .location { font-size: 14px; margin-left: 0; }
+}

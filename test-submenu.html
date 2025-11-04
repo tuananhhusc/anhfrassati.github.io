@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Submenu</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .test-container {
+            max-width: 400px;
+            margin: 0 auto;
+            border: 1px solid #ccc;
+            padding: 20px;
+        }
+        .menu {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .menu li {
+            margin: 10px 0;
+        }
+        .submenu-toggle {
+            background: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            cursor: pointer;
+            border-radius: 5px;
+            width: 100%;
+            text-align: left;
+        }
+        .submenu {
+            display: none;
+            background: #f8f9fa;
+            border: 1px solid #dee2e6;
+            border-radius: 5px;
+            margin-top: 5px;
+            padding: 10px;
+        }
+        .submenu.open {
+            display: block;
+        }
+        .submenu a {
+            display: block;
+            padding: 5px 0;
+            color: #333;
+            text-decoration: none;
+        }
+        .submenu a:hover {
+            background: #e9ecef;
+        }
+        .caret {
+            float: right;
+            transition: transform 0.3s ease;
+        }
+        .submenu-toggle[aria-expanded="true"] .caret {
+            transform: rotate(180deg);
+        }
+        .debug {
+            margin-top: 20px;
+            padding: 10px;
+            background: #f8f9fa;
+            border: 1px solid #dee2e6;
+            border-radius: 5px;
+            font-family: monospace;
+            font-size: 12px;
+        }
+    </style>
+</head>
+<body>
+    <div class="test-container">
+        <h2>Test Submenu</h2>
+        <ul class="menu">
+            <li>
+                <button class="submenu-toggle" aria-expanded="false">
+                    Gặp Gỡ Pier Giorgio <span class="caret">▾</span>
+                </button>
+                <ul class="submenu" aria-label="Gặp gỡ Pier Giorgio">
+                    <li><a href="#">Tiểu Sử</a></li>
+                    <li><a href="#">Dòng Thời Gian</a></li>
+                    <li><a href="#">Gia Đình</a></li>
+                    <li><a href="#">Hoạt Động Công Giáo</a></li>
+                    <li><a href="#">Cái Chết</a></li>
+                    <li><a href="#">Các Phép Lạ</a></li>
+                </ul>
+            </li>
+        </ul>
+        
+        <div class="debug" id="debug">
+            <strong>Debug Info:</strong><br>
+            <span id="debug-info">Click the button to test submenu</span>
+        </div>
+    </div>
+
+    <script>
+        const submenuToggle = document.querySelector('.submenu-toggle');
+        const submenu = document.querySelector('.submenu');
+        const debugInfo = document.getElementById('debug-info');
+        let isAnimating = false;
+
+        function updateDebug(message) {
+            debugInfo.innerHTML += '<br>' + new Date().toLocaleTimeString() + ': ' + message;
+        }
+
+        function toggleSubmenu(forceOpen = null) {
+            if (isAnimating) {
+                updateDebug('⏳ Animation in progress, ignoring');
+                return;
+            }
+            
+            const isExpanded = submenuToggle.getAttribute('aria-expanded') === 'true';
+            const next = forceOpen !== null ? forceOpen : !isExpanded;
+            
+            updateDebug(`🔄 Toggling submenu: isExpanded=${isExpanded}, next=${next}`);
+            
+            isAnimating = true;
+            
+            // Update aria-expanded attribute
+            submenuToggle.setAttribute('aria-expanded', String(next));
+            
+            // Update caret rotation
+            const caret = submenuToggle.querySelector('.caret');
+            if (caret) {
+                caret.style.transform = next ? 'rotate(180deg)' : 'rotate(0deg)';
+            }
+            
+            // Toggle submenu visibility
+            if (next) {
+                submenu.classList.add('open');
+                updateDebug('✅ Submenu OPENED');
+            } else {
+                submenu.classList.remove('open');
+                updateDebug('❌ Submenu CLOSED');
+            }
+            
+            // Reset animation flag
+            setTimeout(() => {
+                isAnimating = false;
+            }, 300);
+        }
+
+        if (submenuToggle && submenu) {
+            submenuToggle.addEventListener('click', function (e) {
+                e.preventDefault();
+                e.stopPropagation();
+                updateDebug('📱 Button clicked');
+                toggleSubmenu();
+            });
+        }
+
+        // Test mobile detection
+        const isMobile = window.matchMedia('(max-width: 720px)').matches;
+        updateDebug(`Screen width: ${window.innerWidth}px, Mobile: ${isMobile}`);
+    </script>
+</body>
+</html>
