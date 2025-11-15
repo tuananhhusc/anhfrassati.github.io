@@ -11,23 +11,35 @@
     <link rel="stylesheet" href="../assets/css/styles.css">
     <link rel="stylesheet" href="../assets/css/hoa-tam.css">
     <style>
-      /* Page-wide background with readability overlay */
+      /* Page-wide background with readability overlay - positioned to start below header */
       body {
-        background-image: linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)), url('../assets/images/009.png');
-        background-size: cover;
-        background-position: center;
-        background-attachment: fixed;
-        background-repeat: no-repeat;
+        background: #f8fafc;
       }
-
-      /* Ensure content remains readable on top of image (do not lower header z-index) */
-      main, .site-footer {
+      
+      main {
         position: relative;
         z-index: 1;
+        background-image: linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)), url('../assets/images/hoatam.png');
+        background-size: cover;
+        background-position: center top;
+        background-attachment: scroll;
+        background-repeat: no-repeat;
+        min-height: calc(100vh - 136px); /* Subtract header height */
+      }
+      
+      /* Mobile optimization for background */
+      @media (max-width: 720px) {
+        main {
+          background-size: cover;
+          background-position: center center;
+          min-height: auto;
+        }
       }
 
-      /* Match footer colors to the rest of the site */
+      /* Ensure content remains readable on top of image */
       .site-footer {
+        position: relative;
+        z-index: 1;
         background: rgba(255,255,255,0.95);
       }
     </style>
